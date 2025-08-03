@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-K Project - Instagram Video Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Fallback background for browsers without WebGL */
+        .webgl-background {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .webgl-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: backgroundShift 10s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="webgl-background">
+        <!-- Fallback background -->
+    </div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1 class="logo-text">A-K Project</h1>
+                <div class="logo-subtitle">Instagram Video Downloader</div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="download-card">
+                <div class="card-header">
+                    <h2>Скачать видео с Instagram</h2>
+                    <p>Вставьте ссылку на видео из Instagram и получите прямую ссылку для скачивания</p>
+                </div>
+
+                <form id="download-form" class="download-form">
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            id="video-url" 
+                            placeholder="https://www.instagram.com/p/..." 
+                            required
+                            class="url-input"
+                        >
+                        <button type="submit" class="download-btn">
+                            <span class="btn-text">Скачать</span>
+                            <div class="loading-spinner" style="display: none;">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="result" class="result-container" style="display: none;">
+                    <div class="result-card">
+                        <h3>Результат</h3>
+                        <div id="result-content"></div>
+                        <button id="copy-btn" class="copy-btn" style="display: none;">
+                            Копировать ссылку
+                        </button>
+                    </div>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Быстро</h3>
+                        <p>Мгновенная обработка ссылок</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Безопасно</h3>
+                        <p>Без регистрации и личных данных</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">💎</div>
+                        <h3>Качественно</h3>
+                        <p>Высокое качество видео</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 A-K Project. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
